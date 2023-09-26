@@ -1,0 +1,9 @@
+# Files 
+
+first_fig.png
+first_fig.svg
+*.zip
+
+# Folders
+
+*.ipynb_checkpoints

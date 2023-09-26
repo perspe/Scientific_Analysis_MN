@@ -1,0 +1,31 @@
+	a4 rep2
+
+Result:	Viscosity curve 1
+
+Interval and data points:	1	0
+Interval data:	Point No.	Shear Rate	Shear Stress	Viscosity	Temperature	Torque	Status	Gap
+								
+		[1/s]	[Pa]	[mPa·s]	[°C]	[mN·m]		[mm]
+
+Interval and data points:	2	1
+Interval data:	Point No.	Shear Rate	Shear Stress	Viscosity	Temperature	Torque	Status	Gap
+								
+		[1/s]	[Pa]	[mPa·s]	[°C]	[mN·m]		[mm]
+	1	-6.97	0	0	25.02	0	M- 	0.100
+
+Interval and data points:	3	11
+Interval data:	Point No.	Shear Rate	Shear Stress	Viscosity	Temperature	Torque	Status	Gap
+								
+		[1/s]	[Pa]	[mPa·s]	[°C]	[mN·m]		[mm]
+	1	100	0.57252	5.7252	25.02	0.0026373	Dy_auto	0.100
+	2	126	0.54344	4.3132	25.01	0.0025033	Dy_auto	0.100
+	3	159	0.75003	4.729	25.01	0.003455	Dy_auto	0.100
+	4	200	0.92451	4.63	25.01	0.0042587	Dy_auto	0.100
+	5	251	1.1628	4.6255	25.01	0.0053565	Dy_auto	0.100
+	6	316	1.5448	4.8811	25.01	0.0071159	Dy_auto	0.100
+	7	398	1.9804	4.9717	25.01	0.0091227	Dy_auto	0.100
+	8	502	2.5482	5.0802	25.01	0.011738	Dy_auto	0.100
+	9	631	3.2365	5.1263	25.01	0.014909	Dy_auto	0.100
+	10	795	4.137	5.204	25.01	0.019057	Dy_auto	0.100
+	11	1E+03	5.2261	5.2217	25.01	0.024074	Dy_auto	0.100
+
