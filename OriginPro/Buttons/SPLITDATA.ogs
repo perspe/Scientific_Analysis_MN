@@ -1,0 +1,87 @@
+// PROGRAMA SPLIT DATASETS
+// LE COLUNAS E SUBDIVIDE OS DADOS CRIANDO NOVAS COLUNAS //
+
+
+
+[Main]
+
+
+//wks.name$="Data";
+//range aa = [%H]Data!;
+
+NC = wks.nCols;	
+NC=;					// num de colunas existentes
+
+%A = wks.col$(1).name$;
+%A=; 							// LE NOME DA 1ª COLUNA
+limit %H_%A;
+
+NLIN=LIMIT.XMAX;					// N total de linhas nos dados
+//Vmax=limit.ymax;
+LINMAX=limit.imax;					// a 1ª vez que aparece o máximo
+//beg=LINMAX+1;
+beg=1;
+NLIN=;
+LINMAX=;
+
+//FAZER UM LOOP A PARTIR DO 1º PARA LER, CRIAR E COPIAR DADOS PARA NOVAS COLUNAs
+return;
+
+loop(j,1,100)
+{
+  limit %H_%A -b beg -e NLIN;
+  nend=limit.imax;
+  npts=nend-beg+1;
+  if (LINMAX == NLIN) break;
+  
+//  for(jj=1;jj<=NC;jj+=1)					//cria NC colunas e copia dados
+//  {
+	
+	%J = wks.col$(jj).name$;
+	%J=;
+	wks.addCol(%J$(j));
+//	copy -b beg %H_%J %H_%J$(j) -b 1 -e npts;
+	loop(npt,1,npts)
+	{
+	   col(%J$(j))[npt]=col(%J)[beg-1+npt];
+	}
+  };
+  LINMAX=limit.imax;					// a 1ª vez que aparece o máximo
+  beg=LINMAX+1;
+}
+
+[MAIN2]
+
+NC = wks.nCols;
+%A = wks.col$(1).name$;
+%A=; 							// LE NOME DA 1ª COLUNA
+limit %H_%A;
+
+NLIN=LIMIT.XMAX;
+
+flag = 0;
+BEG=1;
+getnum
+	   (NPOINTS:)  NPTS
+	   (sPLIT DATA IN BLOCKS);
+
+
+flag = 1;
+
+NBL=NLIN/NPTS;
+LOOP(J,1,NBL)
+{
+
+  for(jj=1;jj<=NC;jj+=1)					//cria NC colunas e copia dados
+  {
+	
+	%J = wks.col$(jj).name$;
+	wks.addCol(%J$(j));
+	loop(npt,1,npts)
+	{
+	   col(%J$(j))[npt]=col(%J)[beg-1+npt];
+	}
+  };
+ BEG=BEG+NPTS;
+}
+return;

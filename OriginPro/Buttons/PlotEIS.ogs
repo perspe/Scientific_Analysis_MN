@@ -1,0 +1,155 @@
+// Filename:    PlotEIS.ogs
+// Purpose:     The ReadEIS Routine button on the standard toolbar will use this code, by calling
+//		the [Main] section 
+// Modifications:
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Main Code 
+////////////////////////////////////////////////////////////////////////////////
+[Main]
+
+%A=%H;				// %H - Janela atual
+a=exist(%A);
+if (a == 2)
+{
+	
+	range pp =[%H];
+        xx=page.Nlayers;	//xx - Numero de sheets na worksheet
+	nn= pp.active;
+	
+	
+	%J = Name;
+	getn
+
+	  (Just This Sheet)  k:2  
+	  (Plot Name) %%J 
+	  (NORM) Z:2
+	  (Plot Options);   // end of getnumber 
+
+	K=;
+	Z=;
+	p=exist(%J);
+        if (p == 0) 
+	{
+	  IF (Z == 0) win -t p EIS_MS %J;   // template de grafico EIS_MS já criado
+	  IF (Z == 1) win -t p EIS_MSN %J;  // template de grafico EIS_MSN já criado
+	  win -a %A;
+	}
+
+	If (k == 0) 
+	{
+	  for (i=1; i<=xx; i+=1)
+	  {
+	   pp.active=i;
+           IF (Z == 0) plotxy iy:=(10,12) o:=[%J]1! plot:= 202; //  nas colunas numero 10 e 12 estão os dados que queremos. As worksheets foram criadas com um template 
+	   IF (Z == 1) plotxy iy:=(10,13) o:=[%J]1! plot:= 202; 
+	   plotxy iy:=(10,9) o:=[%J]2! plot:= 200;
+			
+
+	  }
+	}
+
+	else if (k == 1)
+	{
+	   IF (Z == 0) plotxy iy:=(10,12) o:=[%J]1! plot:= 202; //
+	   IF (Z == 1) plotxy iy:=(10,13) o:=[%J]1! plot:= 202; 
+	   plotxy iy:=(10,9) o:=[%J]2! plot:= 200;
+	}
+}
+else if (a == 3)
+{	
+	//	 rotina posterior para normalizar as curvas
+}
+//	range pp =[%H];
+//        ll=page.Nlayers;	//xx - Numero de layers no grafico
+//	nn= pp.active;
+//	ll=;
+//	nn=;
+
+//	getn
+
+//	  (Click on Data XPoint (V))  k:2h  
+//	  (Constant Value) g:2s
+//	  (Capacity in nF) capacity 
+//	  (Data Normalization);   // end of getnumber 
+
+//	capacity=;
+
+//	getstring (Sample Name) Name [Give Name for Workbook];
+//        
+	
+
+//          plotxy iy:=(3,7) o:=[%B_GEIS]1! plot:= 201;
+//	  plotxy iy:=(3,8) o:=[%B_GEIS]2! plot:= 200;
+//	  plotxy iy:=(3,4) o:=[%B_GEIS]3! plot:= 201;
+//	  plotxy iy:=(3,12) o:=[%B_GEIS]4! plot:= 200;
+//	  plotxy iy:=(4,12) o:=[%B_GEIS]5! plot:= 201;
+         
+       
+
+//          p=exist(%B_GMS);
+//          if (p == 0) win -t p EIS_MS %B_GMS;
+//	  p=exist(%B);
+//	  if (p == 0) win -t wks EIS_MS %B;
+//	  if (p == 2) newsheet book:=%B name:=%J template:= EIS_MS;
+	   
+//	   window -a %B;
+	   	  
+//	   range ww =!;
+//	   ww.name$ ="%J";
+
+	  
+//	  plotxy iy:=(10,12) o:=[%B_GMS]1! plot:= 201; 
+//	  plotxy iy:=(10,9) o:=[%B_GMS]2! plot:= 200;
+//	  plotxy iy:=(10,12) o:=[%B_GMS]1!; 
+//	  plotxy iy:=(10,9) o:=[%B_GMS]2!;
+
+
+        }; 
+	
+
+        
+   
+
+
+
+[END]
+
+
+//	pEIS=exist(%B_GEIS);
+//	PEIS=;
+//	if (pEIS == 3) 
+//           {
+//            win -a %B_GEIS;
+//            range jj =!;
+//            xx=page.nLayers;
+//            for (i=1;i<=xx;i+=1)
+//              {
+//               page.Active=i;
+//               layer -g;
+//              };
+//	    };
+        
+//        pMS=exist(%B_GMS);
+//  	PMS=;
+//	if (pMS == 3) 
+//           {
+//            win -a %B_GMS;
+//            range jjj =!;
+//            xx=page.nLayers;
+//            for (i=1;i<=xx;i+=1)
+//              {
+//               page.Active=i;
+//               layer -g;
+//              };
+//	    };
+ 
+	 
+//type "fim NF $(ii), fich $(i), j$(j)";
+
+//   	    draw -n VS -v set -u;			// atribuir valores
+//	    win -t wks TFT_OUT_VDs temp$(ii);
+//	    win -ch 1; 					 // Minimiza janela
+	    
+	    
