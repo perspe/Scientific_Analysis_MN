@@ -5,5 +5,5 @@ first_fig.svg
 *.zip
 
 # Folders
-
+*.virtual_documents
 *.ipynb_checkpoints
